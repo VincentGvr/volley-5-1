@@ -313,7 +313,7 @@ function renderQuestion(){
   const role=roleByKey[state.role];
   const plural=targets.length>1?'les '+targets.length+' '+role.label:'la/le '+role.label;
   statusEl.innerHTML=`
-    <p class="prompt">${PHASE_NAME[state.phase]} — Rotation <b>${rotLabel(rot)}</b> : place ${plural}.</p>
+    <p class="prompt"><b>${rotLabel(rot)}</b> (${PHASE_NAME[state.phase]})</p>
     <p class="score">Question <b>${quiz.idx+1}/${quiz.rots.length}</b> · Score <b>${quiz.score}</b></p>
     <div class="actions">
       <button class="btn" id="validateBtn">Valider</button>
