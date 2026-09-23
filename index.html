@@ -157,10 +157,10 @@ const PHASE_NAME={reception:'Réception', jeu:'Dans le jeu', service:'Service'};
 
 /* ================= GÉOMÉTRIE ================= */
 const VB_W=340, VB_H=560;
-const CX0=40, CX1=300, CY0=90, CY1=440;       // notre demi-terrain
+const CX0=30, CX1=310, CY0=70, CY1=350;       // notre demi-terrain (9 m x 9 m, carré)
 const CW=CX1-CX0, CH=CY1-CY0;
 const NET_Y=CY1, OPP_Y=CY1+40;                // filet en bas, camp adverse dessous
-const ATTACK_Y=CY0+0.72*CH;                   // ligne des 3 m
+const ATTACK_Y=CY0+(6/9)*CH;                  // ligne des 3 m (3 m du filet = 6 m du fond)
 const TRAY_Y=515;                             // réserve (quiz)
 const R=17, THRESH=42;
 
