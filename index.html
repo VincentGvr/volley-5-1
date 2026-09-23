@@ -410,8 +410,7 @@ function renderRef(){
   const inForm = formation(state.phase,rot).some(p=>p.r===state.role);
   statusEl.innerHTML=`
     ${bar}
-    ${inForm?'':'<p class="feedback ko">Ce poste n\'est pas sur le terrain dans cette rotation.</p>'}
-    <p class="hint">Rouge = ligne arrière · Bleu = ligne avant.</p>`;
+    ${inForm?'':'<p class="feedback ko">Ce poste n\'est pas sur le terrain dans cette rotation.</p>'}`;
   statusEl.querySelectorAll('.rot-btn').forEach(b=>b.onclick=()=>{ ref.rot=b.dataset.r; renderRef(); });
 }
 
