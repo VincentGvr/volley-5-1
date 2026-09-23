@@ -409,7 +409,6 @@ function renderRef(){
   }
   const inForm = formation(state.phase,rot).some(p=>p.r===state.role);
   statusEl.innerHTML=`
-    <p class="prompt">${PHASE_NAME[state.phase]} — <b>${rotLabel(rot)}</b> (${role.name} en surbrillance).</p>
     ${bar}
     ${inForm?'':'<p class="feedback ko">Ce poste n\'est pas sur le terrain dans cette rotation.</p>'}
     <p class="hint">Rouge = ligne arrière · Bleu = ligne avant.</p>`;
