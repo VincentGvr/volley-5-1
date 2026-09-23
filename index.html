@@ -245,8 +245,8 @@ function buildRoles(){
     box.appendChild(b);
   });
 }
-function roleSub(k){return({passeur:'1 par équipe',central:'2 par équipe',reception:'2 par équipe',
-  pointu:'opposé·e au·à la passeur·euse',libero:'défense arrière'})[k];}
+function roleSub(k){return({passeur:'↔︎ pointe',central:'↔︎ libéro/centre arrière',reception:'↔︎ R4',
+  pointu:'↔︎ passe',libero:'↔︎ centre'})[k];}
 
 function selectRole(key){
   state.role=key;
