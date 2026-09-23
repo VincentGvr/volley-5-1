@@ -144,11 +144,11 @@ const F = {
 };
 
 const ROLES=[
-  {key:'passeur',   name:'Passeur·euse',            label:'Pa', color:'#f59e0b'},
-  {key:'central',   name:'Central·e',               label:'C',  color:'#8b5cf6'},
-  {key:'reception', name:'Réceptionneur·euse (R4)', label:'R4', color:'#22c55e'},
-  {key:'pointu',    name:'Pointu·e',                label:'Po', color:'#ef4444'},
-  {key:'libero',    name:'Libéro',                  label:'L',  color:'#eab308'},
+  {key:'passeur',   name:'Passe',            label:'Pa', color:'#f59e0b'},
+  {key:'central',   name:'Centre',               label:'C',  color:'#8b5cf6'},
+  {key:'reception', name:'R4', label:'R4', color:'#22c55e'},
+  {key:'pointu',    name:'Pointe',                label:'Po', color:'#ef4444'},
+  {key:'libero',    name:'Libéro/Centre arrière',                  label:'L',  color:'#eab308'},
 ];
 const roleByKey=Object.fromEntries(ROLES.map(r=>[r.key,r]));
 const PHASE_NAME={reception:'Réception', jeu:'Dans le jeu', service:'Service'};
