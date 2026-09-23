@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'" />
 <meta name="referrer" content="no-referrer" />
 <title>Révision des positions — Volley 5-1</title>
@@ -17,7 +17,7 @@
   *{box-sizing:border-box;}
   body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     background:linear-gradient(160deg,#0f172a,#111827); color:var(--text);
-    min-height:100vh; padding:22px 16px;}
+    min-height:100vh; padding:22px 16px calc(104px + env(safe-area-inset-bottom));}
   .wrap{max-width:1000px; margin:0 auto;}
   h1{font-size:1.45rem; margin:0 0 4px; display:flex; align-items:center; gap:10px;}
   .sub{color:var(--text); margin:0 0 18px; font-size:.9rem;}
