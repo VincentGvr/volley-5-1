@@ -90,10 +90,8 @@
       </div>
 
       <div class="legend">
-        <span class="dot" style="background:var(--back)"></span>Contour rouge = ligne arrière<br>
-        <span class="dot" style="background:var(--front)"></span>Contour bleu = ligne avant<br>
-        Pa passeur·euse · C central·e · R4 réceptionneur·euse · Po pointu·e · L libéro<br>
-        <em>En réception, le libéro remplace le·la central·e en ligne arrière.</em>
+        <span class="dot" style="background:var(--back)"></span>Arrière<br>
+        <span class="dot" style="background:var(--front)"></span>Avant<br>
       </div>
     </div>
 
@@ -146,11 +144,11 @@ const F = {
 };
 
 const ROLES=[
-  {key:'passeur',   name:'Passeur·euse',            label:'Pa', color:'#f59e0b'},
-  {key:'central',   name:'Central·e',               label:'C',  color:'#8b5cf6'},
-  {key:'reception', name:'Réceptionneur·euse (R4)', label:'R4', color:'#22c55e'},
-  {key:'pointu',    name:'Pointu·e',                label:'Po', color:'#ef4444'},
-  {key:'libero',    name:'Libéro',                  label:'L',  color:'#eab308'},
+  {key:'passeur',   name:'Passe',            label:'Pa', color:'#f59e0b'},
+  {key:'central',   name:'Centre',               label:'C',  color:'#8b5cf6'},
+  {key:'reception', name:'R4', label:'R4', color:'#22c55e'},
+  {key:'pointu',    name:'Pointe',                label:'Po', color:'#ef4444'},
+  {key:'libero',    name:'Libéro/Centre arrière',                  label:'L',  color:'#eab308'},
 ];
 const roleByKey=Object.fromEntries(ROLES.map(r=>[r.key,r]));
 const PHASE_NAME={reception:'Réception', jeu:'Dans le jeu', service:'Service'};
@@ -247,8 +245,8 @@ function buildRoles(){
     box.appendChild(b);
   });
 }
-function roleSub(k){return({passeur:'1 par équipe',central:'2 par équipe',reception:'2 par équipe',
-  pointu:'opposé·e au·à la passeur·euse',libero:'défense arrière'})[k];}
+function roleSub(k){return({passeur:'↔︎ pointe',central:'↔︎ libéro/centre arrière',reception:'↔︎ R4',
+  pointu:'↔︎ passe',libero:'↔︎ centre'})[k];}
 
 function selectRole(key){
   state.role=key;
@@ -315,7 +313,7 @@ function renderQuestion(){
   const role=roleByKey[state.role];
   const plural=targets.length>1?'les '+targets.length+' '+role.label:'la/le '+role.label;
   statusEl.innerHTML=`
-    <p class="prompt">${PHASE_NAME[state.phase]} — Rotation <b>${rotLabel(rot)}</b> : place ${plural}.</p>
+    <p class="prompt"><b>${rotLabel(rot)}</b> (${PHASE_NAME[state.phase]})</p>
     <p class="score">Question <b>${quiz.idx+1}/${quiz.rots.length}</b> · Score <b>${quiz.score}</b></p>
     <div class="actions">
       <button class="btn" id="validateBtn">Valider</button>
@@ -411,10 +409,8 @@ function renderRef(){
   }
   const inForm = formation(state.phase,rot).some(p=>p.r===state.role);
   statusEl.innerHTML=`
-    <p class="prompt">${PHASE_NAME[state.phase]} — <b>${rotLabel(rot)}</b> (${role.name} en surbrillance).</p>
     ${bar}
-    ${inForm?'':'<p class="feedback ko">Ce poste n\'est pas sur le terrain dans cette rotation.</p>'}
-    <p class="hint">Rouge = ligne arrière · Bleu = ligne avant.</p>`;
+    ${inForm?'':'<p class="feedback ko">Ce poste n\'est pas sur le terrain dans cette rotation.</p>'}`;
   statusEl.querySelectorAll('.rot-btn').forEach(b=>b.onclick=()=>{ ref.rot=b.dataset.r; renderRef(); });
 }
 
